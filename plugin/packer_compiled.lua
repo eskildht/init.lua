@@ -174,6 +174,11 @@ _G.packer_plugins = {
     path = "/Users/eskild.troen/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/eskild.troen/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/Users/eskild.troen/.local/share/nvim/site/pack/packer/start/vim-repeat",

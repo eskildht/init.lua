@@ -48,4 +48,6 @@ require('packer').startup(function()
     'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+  -- git tool
+  use 'tpope/vim-fugitive'
 end)
