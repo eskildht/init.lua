@@ -50,4 +50,6 @@ require('packer').startup(function()
   }
   -- git tool
   use 'tpope/vim-fugitive'
+  -- autopairs
+  use 'windwp/nvim-autopairs'
 end)
