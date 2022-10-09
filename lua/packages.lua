@@ -1,12 +1,11 @@
 require('packer').startup(function()
-  -- package manager packer can manage itself
   use 'wbthomason/packer.nvim'
   -- colorscheme
   use 'folke/tokyonight.nvim'
   -- greeter
   use {
     'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = 'kyazdani42/nvim-web-devicons'
   }
   -- surround
   use 'tpope/vim-surround'
@@ -36,7 +35,7 @@ require('packer').startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.x',
-    requires = { 'nvim-lua/plenary.nvim' }
+    requires = 'nvim-lua/plenary.nvim'
   }
   -- native telescope sorter
   use {
@@ -64,4 +63,9 @@ require('packer').startup(function()
   }
   -- git symbols in sign column
   use 'lewis6991/gitsigns.nvim'
+  -- tree
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
 end)

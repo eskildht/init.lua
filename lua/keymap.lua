@@ -6,7 +6,7 @@ keymap('n', '<c-s>', ':w<cr>', {})
 keymap('i', '<c-s>', '<esc>:w<cr>a', {})
 
 -- PackerSync
-keymap('n', '<leader>', ':PackerSync<cr>', opts)
+keymap('n', '<leader>ps', ':PackerSync<cr>', opts)
 
 -- navigate between windows
 keymap('n', '<c-h>', '<c-w>h', opts)
