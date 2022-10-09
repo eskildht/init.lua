@@ -39,5 +39,13 @@ require('packer').startup(function()
     requires = { 'nvim-lua/plenary.nvim' }
   }
   -- native telescope sorter
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  }
+  -- diff view tool
+  use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 end)
