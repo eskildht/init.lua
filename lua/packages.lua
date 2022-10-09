@@ -52,4 +52,6 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   -- autopairs
   use 'windwp/nvim-autopairs'
+  -- autotag
+  use 'windwp/nvim-ts-autotag'
 end)
