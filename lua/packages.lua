@@ -8,7 +8,6 @@ require('packer').startup(function()
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
-  require('setup/alpha')
   -- surround
   use 'tpope/vim-surround'
   -- comment
@@ -17,15 +16,20 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   -- parser generator tool and incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
-  require('setup/treesitter')
   -- package manager for lsp servers, dap servers, linters and formatters
   use 'williamboman/mason.nvim'
-  -- lsp
-  use {
-    -- bridge mason.nvim with nvim-lspconfig
-    'williamboman/mason-lspconfig.nvim',
-    -- configs for the nvim lsp client
-    'neovim/nvim-lspconfig'
-  }
-  require('setup/lsp')
+  -- bridge mason.nvim with nvim-lspconfig
+  use 'williamboman/mason-lspconfig.nvim'
+  -- configs for the nvim lsp client
+  use 'neovim/nvim-lspconfig'
+  -- completion engine
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  -- snippets
+  use 'SirVer/ultisnips'
+  use 'honza/vim-snippets'
 end)
