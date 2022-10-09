@@ -1,9 +1,26 @@
 -- options
-vim.opt_local.expandtab = true
-vim.opt_local.shiftwidth = 2
-vim.opt_local.softtabstop = 2
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+  -- tab general settings
+  vim.opt.expandtab = true
+  vim.opt.shiftwidth = 2
+  vim.opt.softtabstop = 2
+  -- fold general settings
+  vim.opt.foldmethod = 'expr'
+  vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+  -- open all folds by default
+  vim.opt.foldenable = false
+  -- current line is 0
+  vim.opt.relativenumber = true
+  -- remove current mode below statusline
+  vim.opt.showmode = false
+  -- split vertical right
+  vim.opt.splitright = true
+  -- split horizontal below
+  vim.opt.splitbelow = true
+  -- enable emojis
+  vim.opt.emoji = true
+  -- persistent undo
+  vim.opt.undofile = true
+  vim.opt.undodir='~/.config/nvim/undodir'
 
 -- leader
 vim.g.mapleader = ','
