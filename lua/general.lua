@@ -25,6 +25,10 @@
   vim.opt.cursorline = true
   -- allow space for signs
   vim.opt.signcolumn = 'yes'
+  -- search smarter
+  vim.opt.ignorecase = true
+  vim.opt.smartcase = true
+
 -- leader
 vim.g.mapleader = ','
 
