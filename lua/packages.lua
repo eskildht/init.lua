@@ -54,4 +54,14 @@ require('packer').startup(function()
   use 'windwp/nvim-autopairs'
   -- autotag
   use 'windwp/nvim-ts-autotag'
+  -- statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+      opt = true
+    }
+  }
+  -- git symbols in sign column
+  use 'lewis6991/gitsigns.nvim'
 end)
