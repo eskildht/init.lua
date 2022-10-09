@@ -32,4 +32,12 @@ require('packer').startup(function()
   -- snippets
   use 'SirVer/ultisnips'
   use 'honza/vim-snippets'
+  -- fuzzy finder over lists
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.x',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
+  -- native telescope sorter
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 end)
