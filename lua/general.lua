@@ -20,7 +20,7 @@
   vim.opt.emoji = true
   -- persistent undo
   vim.opt.undofile = true
-  vim.opt.undodir='$HOME/.config/nvim/undodir'
+  vim.opt.undodir='/tmp'
   -- highlight current line
   vim.opt.cursorline = true
   -- allow space for signs
