@@ -4,7 +4,9 @@ vim.keymap.set('n', '<leader>/', ':lua require("telescope.builtin").live_grep()<
 vim.keymap.set('n', '<leader>b', ':lua require("telescope.builtin").buffers()<cr>', opts)
 vim.keymap.set('n', '<leader>c', ':lua require("telescope.builtin").git_commits()<cr>', opts)
 
-require('telescope').setup({
+local telescope = require('telescope')
+telescope.load_extension('media_files')
+telescope.setup({
   defaults = {
     path_display = {
       'truncate'

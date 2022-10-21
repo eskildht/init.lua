@@ -15,10 +15,12 @@ local on_attach = function(_, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gv', ':vs | lua vim.lsp.buf.definition()<cr>', bufopts)
+  vim.keymap.set('n', 'gs', ':sp | lua vim.lsp.buf.definition()<cr>', bufopts)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>co', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
@@ -31,7 +33,7 @@ require('mason-lspconfig').setup({
 
 local lspconfig = require('lspconfig')
 -- cmp integration
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
@@ -57,6 +59,10 @@ lspconfig.tsserver.setup({
   capabilities = capabilities
 })
 lspconfig.eslint.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+lspconfig.tailwindcss.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })

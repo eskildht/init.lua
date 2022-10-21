@@ -42,6 +42,11 @@ require('packer').startup(function()
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
+  -- media files preview in telescope
+  use {
+    'nvim-telescope/telescope-media-files.nvim',
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' }
+  }
   -- diff view tool
   use {
     'sindrets/diffview.nvim',
