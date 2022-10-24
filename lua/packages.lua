@@ -73,4 +73,6 @@ require('packer').startup(function()
     'nvim-tree/nvim-tree.lua',
     requires = 'nvim-tree/nvim-web-devicons'
   }
+  -- css colors
+  use 'NvChad/nvim-colorizer.lua'
 end)
