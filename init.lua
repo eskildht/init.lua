@@ -1,7 +1,7 @@
 -- main
+require('packages')
 require('general')
 require('keymap')
-require('packages')
 
 -- setup
 require('setup/alpha')
