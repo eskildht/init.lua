@@ -8,8 +8,10 @@
   vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
   -- open all folds by default
   vim.opt.foldenable = false
-  -- current line is 0
+  -- use relativen line umbers
   vim.opt.relativenumber = true
+  -- make sure current linse has true number
+  vim.opt.number = true
   -- remove current mode below statusline
   vim.opt.showmode = false
   -- split vertical right
