@@ -16,3 +16,6 @@ keymap('n', '<c-l>', '<c-w>l', opts)
 
 -- disable hl with 2 esc
 keymap('n', '<esc>', ':noh<cr>', opts)
+
+-- cd one up
+keymap('n', '<leader>-', ':cd ..<cr>', opts)
