@@ -64,4 +64,6 @@ require('packer').startup(function()
   }
   -- css colors (including tailwindcss)
   use 'brenoprata10/nvim-highlight-colors'
+  -- floating terminal window
+  use 'voldikss/vim-floaterm'
 end)
