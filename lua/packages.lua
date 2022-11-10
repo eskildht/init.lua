@@ -66,4 +66,15 @@ require('packer').startup(function()
   use 'brenoprata10/nvim-highlight-colors'
   -- floating terminal window
   use 'voldikss/vim-floaterm'
+  -- autosave
+  use {
+    'Pocco81/auto-save.nvim',
+    -- inline config as auto-save will be enabled when loaded by packer
+    config = function()
+      require('auto-save').setup({
+        enabled = false
+      })
+      vim.api.nvim_set_keymap("n", "<leader>w", ":ASToggle<cr>", { noremap = true, silent = true })
+    end
+  }
 end)
