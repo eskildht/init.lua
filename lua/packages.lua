@@ -77,4 +77,18 @@ require('packer').startup(function()
       vim.api.nvim_set_keymap("n", "<leader>w", ":ASToggle<cr>", { noremap = true, silent = true })
     end
   }
+  -- Markdown preview
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && yarn install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" }
+  }
+  -- Formatters
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = 'nvim-lua/plenary.nvim'
+  }
 end)
