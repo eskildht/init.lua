@@ -93,4 +93,6 @@ require('packer').startup(function()
   }
   -- standalone UI for nvim-lsp progress
   use 'j-hui/fidget.nvim'
+  -- symbols outline
+  use 'simrat39/symbols-outline.nvim'
 end)
