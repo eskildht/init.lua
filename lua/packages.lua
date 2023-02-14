@@ -74,21 +74,23 @@ require('packer').startup(function()
       require('auto-save').setup({
         enabled = false
       })
-      vim.api.nvim_set_keymap("n", "<leader>w", ":ASToggle<cr>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>w', ':ASToggle<cr>', { noremap = true, silent = true })
     end
   }
-  -- Markdown preview
+  -- markdown preview
   use {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && yarn install",
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && yarn install',
     setup = function()
-      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_filetypes = { 'markdown' }
     end,
-    ft = { "markdown" }
+    ft = { 'markdown' }
   }
-  -- Formatters
+  -- formatters
   use {
-    "jose-elias-alvarez/null-ls.nvim",
+    'jose-elias-alvarez/null-ls.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+  -- standalone UI for nvim-lsp progress
+  use 'j-hui/fidget.nvim'
 end)
