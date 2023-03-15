@@ -74,7 +74,7 @@ require('packer').startup(function()
       require('auto-save').setup({
         enabled = false
       })
-      vim.api.nvim_set_keymap('n', '<leader>w', ':ASToggle<cr>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>h', ':ASToggle<cr>', { noremap = true, silent = true })
     end
   }
   -- markdown preview
@@ -95,4 +95,6 @@ require('packer').startup(function()
   use 'j-hui/fidget.nvim'
   -- symbols outline
   use 'simrat39/symbols-outline.nvim'
+  -- symbols outline
+  use 'wesQ3/vim-windowswap'
 end)
