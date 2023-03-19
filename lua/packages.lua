@@ -97,4 +97,6 @@ require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   -- symbols outline
   use 'wesQ3/vim-windowswap'
+  -- vimwiki
+  use 'vimwiki/vimwiki'
 end)
