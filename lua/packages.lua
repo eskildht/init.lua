@@ -99,4 +99,9 @@ require('packer').startup(function()
   use 'wesQ3/vim-windowswap'
   -- vimwiki
   use 'vimwiki/vimwiki'
+  -- windbar component for current code context
+  use {
+    'SmiteshP/nvim-navic',
+    requires = 'neovim/nvim-lspconfig'
+  }
 end)
