@@ -12,6 +12,5 @@ require('lualine').setup({
     lualine_b = {
       { navic.get_location, cond = navic.is_available }
     }
-
   }
 })
