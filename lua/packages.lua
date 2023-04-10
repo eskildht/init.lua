@@ -31,7 +31,7 @@ require('packer').startup(function()
   -- snippets
   use 'SirVer/ultisnips'
   use 'honza/vim-snippets'
-  -- general-purpose command-line fuzzy finder  
+  -- general-purpose command-line fuzzy finder
   use {
     'ibhagwan/fzf-lua',
     requires = 'kyazdani42/nvim-web-devicons'
@@ -95,7 +95,7 @@ require('packer').startup(function()
   use 'j-hui/fidget.nvim'
   -- symbols outline
   use 'simrat39/symbols-outline.nvim'
-  -- symbols outline
+  -- swap buffers
   use 'wesQ3/vim-windowswap'
   -- vimwiki
   use 'vimwiki/vimwiki'
@@ -103,5 +103,14 @@ require('packer').startup(function()
   use {
     'SmiteshP/nvim-navic',
     requires = 'neovim/nvim-lspconfig'
+  }
+  -- popup display that provides breadcrumbs like navigation
+  use {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim"
+    }
   }
 end)
