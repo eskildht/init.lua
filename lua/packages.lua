@@ -106,11 +106,19 @@ require('packer').startup(function()
   }
   -- popup display that provides breadcrumbs like navigation
   use {
-    "SmiteshP/nvim-navbuddy",
+    'SmiteshP/nvim-navbuddy',
     requires = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim"
+      'neovim/nvim-lspconfig',
+      'SmiteshP/nvim-navic',
+      'MunifTanjim/nui.nvim'
     }
   }
+  use {
+  'pwntester/octo.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    'kyazdani42/nvim-web-devicons',
+  }
+}
 end)
