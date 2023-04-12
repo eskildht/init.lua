@@ -1,10 +1,10 @@
 require('octo').setup({
   default_remote = {"upstream", "origin"}; -- order to try remotes
   ssh_aliases = {},                        -- SSH aliases. e.g. `ssh_aliases = {["github.com-work"] = "github.com"}`
-  reaction_viewer_hint_icon = " ";         -- marker for user reactions
+  reaction_viewer_hint_icon = "";         -- marker for user reactions
   user_icon = " ";                        -- user icon
   timeline_marker = "";                   -- timeline marker
-  timeline_indent = "2";                   -- timeline indentation
+  timeline_indent = "4";                   -- timeline indentation
   right_bubble_delimiter = "";             -- bubble delimiter
   left_bubble_delimiter = "";              -- bubble delimiter
   github_hostname = "";                    -- GitHub Enterprise host
