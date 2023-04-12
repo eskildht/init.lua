@@ -25,8 +25,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
   if client.server_capabilities.documentSymbolProvider then
-    -- attach navic to show current code context
-    require('nvim-navic').attach(client, bufnr)
     -- attach nvim-navbuddy
     require('nvim-navbuddy').attach(client, bufnr)
   end

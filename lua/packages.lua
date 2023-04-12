@@ -1,7 +1,8 @@
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  -- colorscheme
+  -- colorschemes
   use 'folke/tokyonight.nvim'
+  use 'ellisonleao/gruvbox.nvim'
   -- greeter
   use {
     'goolord/alpha-nvim',
@@ -99,11 +100,6 @@ require('packer').startup(function()
   use 'wesQ3/vim-windowswap'
   -- vimwiki
   use 'vimwiki/vimwiki'
-  -- windbar component for current code context
-  use {
-    'SmiteshP/nvim-navic',
-    requires = 'neovim/nvim-lspconfig'
-  }
   -- popup display that provides breadcrumbs like navigation
   use {
     'SmiteshP/nvim-navbuddy',
