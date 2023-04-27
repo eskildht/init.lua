@@ -58,11 +58,6 @@ require('packer').startup(function()
   }
   -- git symbols in sign column
   use 'lewis6991/gitsigns.nvim'
-  -- tree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = 'nvim-tree/nvim-web-devicons'
-  }
   -- css colors (including tailwindcss)
   use 'brenoprata10/nvim-highlight-colors'
   -- floating terminal window
@@ -105,11 +100,12 @@ require('packer').startup(function()
     }
   }
   use {
-  'pwntester/octo.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
-    'kyazdani42/nvim-web-devicons',
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    }
   }
-}
+  use 'stevearc/oil.nvim'
 end)
