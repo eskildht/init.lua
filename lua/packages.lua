@@ -87,11 +87,6 @@ require('packer').startup(function()
     end,
     ft = { 'markdown' }
   }
-  -- formatters
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
   -- standalone UI for nvim-lsp progress
   use 'j-hui/fidget.nvim'
   -- symbols outline

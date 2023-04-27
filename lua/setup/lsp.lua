@@ -1,6 +1,6 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>a', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -57,6 +57,16 @@ lspconfig.pyright.setup({
 })
 lspconfig.tsserver.setup({
   on_attach = on_attach,
+  capabilities = capabilities
+})
+lspconfig.eslint.setup({
+  on_attach = function(client, bufnr)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+      on_attach(client, bufnr)
+  end,
   capabilities = capabilities
 })
 lspconfig.tailwindcss.setup({
