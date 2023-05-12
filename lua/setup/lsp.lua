@@ -55,6 +55,10 @@ lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
 lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
       vim.api.nvim_create_autocmd("BufWritePre", {
