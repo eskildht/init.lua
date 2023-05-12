@@ -33,6 +33,8 @@
 
 -- leader
 vim.g.mapleader = ','
+-- use the same python3 provider for nvim
+vim.g.python3_host_prog = '~/.asdf/installs/python/3.11.3/bin/python'
 
 -- colorscheme setup
 vim.cmd('colorscheme tokyonight-moon')
