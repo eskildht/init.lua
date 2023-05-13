@@ -108,4 +108,16 @@ require('packer').startup(function()
     }
   }
   use 'stevearc/oil.nvim'
+  use({
+    'Wansmer/treesj',
+    requires = { 'nvim-treesitter' },
+    config = function()
+      require('treesj').setup({
+        use_default_keymaps = false,
+      })
+      local keymap = vim.api.nvim_set_keymap
+      local opts = { noremap = true, silent = true }
+      keymap('n', '<leader>m', ':TSJToggle<cr>', opts)
+    end,
+  })
 end)
