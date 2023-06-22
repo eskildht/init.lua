@@ -146,10 +146,17 @@ require('packer').startup(function()
     config = function()
       require('treesj').setup({
         use_default_keymaps = false,
+        max_join_length = 960
       })
       local keymap = vim.api.nvim_set_keymap
       local opts = { noremap = true, silent = true }
       keymap('n', '<leader>m', ':TSJToggle<cr>', opts)
     end,
   })
+  use {
+    'ggandor/leap.nvim',
+    config = function ()
+      require('leap').add_default_mappings()
+    end
+  }
 end)
