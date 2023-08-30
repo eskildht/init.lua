@@ -1,99 +1,107 @@
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup({
   -- colorschemes
-  use 'folke/tokyonight.nvim'
-  use 'ellisonleao/gruvbox.nvim'
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function ()
+      vim.cmd('colorscheme tokyonight-moon')
+    end
+  },
+  'ellisonleao/gruvbox.nvim',
   -- greeter
-  use {
+  {
     'goolord/alpha-nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
+    dependencies = 'kyazdani42/nvim-web-devicons'
+  },
   -- surround
-  use 'tpope/vim-surround'
+  'tpope/vim-surround',
   -- comment
-  use 'tpope/vim-commentary'
+  'tpope/vim-commentary',
   -- repeat
-  use 'tpope/vim-repeat'
+  'tpope/vim-repeat',
   -- parser generator tool and incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
+  'nvim-treesitter/nvim-treesitter',
   -- package manager for lsp servers, dap servers, linters and formatters
-  use 'williamboman/mason.nvim'
+  'williamboman/mason.nvim',
   -- bridge mason.nvim with nvim-lspconfig
-  use 'williamboman/mason-lspconfig.nvim'
+  'williamboman/mason-lspconfig.nvim',
   -- configs for the nvim lsp client
-  use 'neovim/nvim-lspconfig'
+  'neovim/nvim-lspconfig',
   -- completion engine
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'quangnguyen30192/cmp-nvim-ultisnips',
   -- snippets
-  use 'SirVer/ultisnips'
-  use 'honza/vim-snippets'
+  'SirVer/ultisnips',
+  'honza/vim-snippets',
   -- general-purpose command-line fuzzy finder
-  use {
+  {
     'ibhagwan/fzf-lua',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
+    dependencies = 'kyazdani42/nvim-web-devicons'
+  },
   -- diff view tool
-  use {
+  {
     'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
+    dependencies = 'nvim-lua/plenary.nvim',
+  },
   -- git tool
-  use 'tpope/vim-fugitive'
+  'tpope/vim-fugitive',
   -- autopairs
-  use 'windwp/nvim-autopairs'
+  'windwp/nvim-autopairs',
   -- autotag
-  use 'windwp/nvim-ts-autotag'
+  'windwp/nvim-ts-autotag',
   -- statusline
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = {
+    dependencies = {
       'kyazdani42/nvim-web-devicons',
       opt = true
     }
-  }
+  },
   -- git symbols in sign column
-  use 'lewis6991/gitsigns.nvim'
+  'lewis6991/gitsigns.nvim',
   -- css colors (including tailwindcss)
-  use 'brenoprata10/nvim-highlight-colors'
+  'brenoprata10/nvim-highlight-colors',
   -- floating terminal window
-  use 'voldikss/vim-floaterm'
-  -- autosave
-  use {
-    'Pocco81/auto-save.nvim',
-    -- inline config as auto-save will be enabled when loaded by packer
-    config = function()
-      require('auto-save').setup({
-        enabled = false
-      })
-      vim.api.nvim_set_keymap('n', '<leader>h', ':ASToggle<cr>', { noremap = true, silent = true })
-    end
-  }
+  'voldikss/vim-floaterm',
   -- markdown preview
-  use {
+  {
     'iamcco/markdown-preview.nvim',
-    run = 'cd app && yarn install',
-    setup = function()
+    build = 'cd app && yarn install',
+    config = function()
       vim.g.mkdp_filetypes = { 'markdown' }
     end,
     ft = { 'markdown' }
-  }
+  },
   -- standalone UI for nvim-lsp progress
-  use 'j-hui/fidget.nvim'
+  'j-hui/fidget.nvim',
   -- symbols outline
-  use 'simrat39/symbols-outline.nvim'
+  'simrat39/symbols-outline.nvim',
   -- swap buffers
-  use 'wesQ3/vim-windowswap'
+  'wesQ3/vim-windowswap',
   -- vimwiki
-  use 'vimwiki/vimwiki'
+  'vimwiki/vimwiki',
   -- popup display that provides breadcrumbs like navigation
-  use {
+  {
     'SmiteshP/nvim-navbuddy',
-    requires = {
+    dependencies = {
       'neovim/nvim-lspconfig',
       'SmiteshP/nvim-navic',
       'MunifTanjim/nui.nvim'
@@ -126,23 +134,23 @@ require('packer').startup(function()
           Struct = "󰠱 ",
           Event = " ",
           Operator = " ",
-          TypeParameter = " "
-        }
+          TypeParameter = " ",
+        },
       })
     end
-  }
-  use {
+  },
+  {
     'pwntester/octo.nvim',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
       'kyazdani42/nvim-web-devicons',
     }
-  }
-  use 'stevearc/oil.nvim'
-  use({
+  },
+  'stevearc/oil.nvim',
+  {
     'Wansmer/treesj',
-    requires = { 'nvim-treesitter' },
+    dependencies = { 'nvim-treesitter' },
     config = function()
       require('treesj').setup({
         use_default_keymaps = false,
@@ -152,11 +160,11 @@ require('packer').startup(function()
       local opts = { noremap = true, silent = true }
       keymap('n', '<leader>m', ':TSJToggle<cr>', opts)
     end,
-  })
-  use {
+  },
+  {
     'ggandor/leap.nvim',
     config = function ()
       require('leap').add_default_mappings()
     end
-  }
-end)
+  },
+})

@@ -37,12 +37,4 @@ vim.g.mapleader = ','
 vim.g.python3_host_prog = '~/.asdf/installs/python/3.11.3/bin/python'
 
 -- colorscheme setup
-vim.cmd('colorscheme tokyonight-moon')
-
--- PackerCompile on write packages.lua
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packages.lua source <afile> | PackerCompile
-  augroup end
-]])
+-- vim.cmd('colorscheme tokyonight-moon')

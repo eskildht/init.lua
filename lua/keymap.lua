@@ -5,9 +5,6 @@ local opts = { noremap = true, silent = true }
 keymap('n', '<c-s>', ':w<cr>', {})
 keymap('i', '<c-s>', '<esc>:w<cr>a', {})
 
--- PackerSync
-keymap('n', '<leader>ps', ':PackerSync<cr>', opts)
-
 -- navigate between windows
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-j>', '<c-w>j', opts)

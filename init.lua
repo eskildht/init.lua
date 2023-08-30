@@ -1,6 +1,6 @@
 -- main
-require('packages')
 require('general')
+require('packages')
 require('keymap')
 
 -- setup
