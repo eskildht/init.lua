@@ -195,8 +195,41 @@ require('lazy').setup({
         bottom_search = true, -- use a classic bottom cmdline for search
         command_palette = true, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        inc_rename = true, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+      commands = {
+        history = {
+          -- options for the message history that you get with `:Noice`
+          view = "split",
+          opts = { enter = true, format = "details" },
+          filter = {
+            any = {
+              { event = "notify" },
+              { error = true },
+              { warning = true },
+              { event = "msg_show", kind = { "" } },
+              { event = "lsp", kind = "message" },
+              { cmdline = true },
+            },
+          },
+        },
+        -- :Noice last
+        last = {
+          view = "popup",
+          opts = { enter = true, format = "details" },
+          filter = {
+            any = {
+              { event = "notify" },
+              { error = true },
+              { warning = true },
+              { event = "msg_show", kind = { "" } },
+              { event = "lsp", kind = "message" },
+              { cmdline = true },
+            },
+          },
+          filter_opts = { count = 1 },
+        },
       },
     },
     dependencies = {
@@ -206,7 +239,6 @@ require('lazy').setup({
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
-    }
+    },
   },
-
 })

@@ -77,6 +77,14 @@ lspconfig.fortls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+lspconfig.csharp_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+lspconfig.omnisharp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
 
 local signs = { Error = "☠", Warn = "⚠", Hint = "☭", Info = "" }
 for type, icon in pairs(signs) do
