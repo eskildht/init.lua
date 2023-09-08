@@ -16,3 +16,6 @@ keymap('n', '<esc>', ':noh<cr>', opts)
 
 -- cd one up
 keymap('n', '<leader>-', ':cd ..<cr>', opts)
+
+-- select previous visual selection
+keymap('n', '<leader>pv', 'gv', opts)
