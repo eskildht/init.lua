@@ -6,8 +6,8 @@
   -- fold general settings
   vim.opt.foldmethod = 'expr'
   vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-  -- open all folds by default
-  vim.opt.foldenable = false
+  -- fold all by default
+  vim.opt.foldenable = true
   -- use relativen line umbers
   vim.opt.relativenumber = true
   -- make sure current linse has true number
@@ -34,7 +34,16 @@
 -- leader
 vim.g.mapleader = ','
 -- use the same python3 provider for nvim
-vim.g.python3_host_prog = '~/.asdf/installs/python/3.11.3/bin/python'
+vim.g.python3_host_prog = '~/.asdf/installs/python/3.12.0/bin/python'
 
 -- colorscheme setup
 -- vim.cmd('colorscheme tokyonight-moon')
+--
+-- colors override
+vim.cmd([[
+augroup custom_highlight
+  au!
+  au ColorScheme * hi Folded guibg=#af00af guifg=#00ff00
+  au ColorScheme * hi CursorLine guibg=#800000
+augroup END
+]])
