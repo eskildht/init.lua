@@ -47,10 +47,6 @@ require('lazy').setup({
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
   'hrsh7th/nvim-cmp',
-  'quangnguyen30192/cmp-nvim-ultisnips',
-  -- snippets
-  'SirVer/ultisnips',
-  'honza/vim-snippets',
   -- general-purpose command-line fuzzy finder
   {
     'ibhagwan/fzf-lua',
