@@ -172,4 +172,19 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
     }
   },
+  -- snippets, required by cmp
+  {
+    'dcampos/nvim-snippy',
+    config = function ()
+      require('snippy').setup({
+        mappings = {
+            is = {
+                ['<Enter>'] = 'expand_or_advance',
+                ['<C-h>'] = 'previous',
+                ['<C-l>'] = 'next',
+            },
+        },
+      })
+    end
+  },
 })
