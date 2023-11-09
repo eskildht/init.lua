@@ -43,7 +43,7 @@ vim.g.python3_host_prog = '~/.asdf/installs/python/3.12.0/bin/python'
 vim.cmd([[
 augroup custom_highlight
   au!
-  au ColorScheme * hi Folded guibg=#af00af guifg=#00ff00
+  au ColorScheme * hi Folded guibg=#eb7a34 guifg=#510875
   au ColorScheme * hi CursorLine guibg=#800000
 augroup END
 ]])
