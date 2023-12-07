@@ -26,7 +26,6 @@ require('lazy').setup({
       vim.cmd('colorscheme tokyonight-moon')
     end
   },
-  'ellisonleao/gruvbox.nvim',
   -- greeter
   {
     'goolord/alpha-nvim',
@@ -93,8 +92,6 @@ require('lazy').setup({
   },
   -- standalone UI for nvim-lsp progress
   'j-hui/fidget.nvim',
-  -- symbols outline
-  'simrat39/symbols-outline.nvim',
   -- swap buffers
   'wesQ3/vim-windowswap',
   -- vimwiki
@@ -148,6 +145,7 @@ require('lazy').setup({
       'kyazdani42/nvim-web-devicons',
     }
   },
+  -- file creation, moving etc.
   'stevearc/oil.nvim',
   {
     'Wansmer/treesj',
@@ -167,15 +165,6 @@ require('lazy').setup({
     config = function ()
       require('leap').add_default_mappings()
     end
-  },
-  -- file system browser
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    }
   },
   -- snippets, required by cmp
   {
