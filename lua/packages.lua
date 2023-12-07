@@ -54,7 +54,15 @@ require('lazy').setup({
   -- general-purpose command-line fuzzy finder
   {
     'ibhagwan/fzf-lua',
-    dependencies = 'kyazdani42/nvim-web-devicons'
+    dependencies = 'kyazdani42/nvim-web-devicons',
+    lazy = true,
+    config = function ()
+      require('setup/fzf')
+    end,
+    keys = {
+      { '<leader>s', nil, mode = { 'n', 'v' } },
+      { '<leader>/', nil, mode = { 'n' } }
+    }
   },
   -- diff view tool
   {
@@ -143,7 +151,12 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
       'kyazdani42/nvim-web-devicons',
-    }
+    },
+    lazy = true,
+    cmd = 'Octo',
+    config = function()
+      require('setup/octo')
+    end,
   },
   -- file creation, moving etc.
   'stevearc/oil.nvim',
