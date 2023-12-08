@@ -161,19 +161,6 @@ require('lazy').setup({
   -- file creation, moving etc.
   'stevearc/oil.nvim',
   {
-    'Wansmer/treesj',
-    dependencies = { 'nvim-treesitter' },
-    config = function()
-      require('treesj').setup({
-        use_default_keymaps = false,
-        max_join_length = 960
-      })
-      local keymap = vim.api.nvim_set_keymap
-      local opts = { noremap = true, silent = true }
-      keymap('n', '<leader>m', ':TSJToggle<cr>', opts)
-    end,
-  },
-  {
     'ggandor/leap.nvim',
     config = function ()
       require('leap').add_default_mappings()
@@ -194,4 +181,28 @@ require('lazy').setup({
       })
     end
   },
+  -- harpoon mark files
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    lazy = true,
+    keys = { '<leader>h', '<leader>m', '1', '2', '3', '4' },
+    config = function ()
+      local harpoon = require("harpoon")
+      -- REQUIRED
+      harpoon:setup()
+      -- REQUIRED
+
+      vim.keymap.set("n", "<leader>h", function() harpoon:list():append() end)
+      vim.keymap.set("n", "<leader>m", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+      vim.keymap.set("n", "1", function() harpoon:list():select(1) end)
+      vim.keymap.set("n", "2", function() harpoon:list():select(2) end)
+      vim.keymap.set("n", "3", function() harpoon:list():select(3) end)
+      vim.keymap.set("n", "4", function() harpoon:list():select(4) end)
+    end
+  }
 })
