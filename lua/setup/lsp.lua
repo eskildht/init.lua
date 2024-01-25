@@ -57,7 +57,8 @@ lspconfig.pyright.setup({
 })
 lspconfig.tsserver.setup({
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  root_dir = lspconfig.util.root_pattern("tsconfig.test.json", "tsconfig.json", "package.json", "jsconfig.json", ".git"),
 })
 lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
