@@ -41,5 +41,6 @@ augroup custom_highlight
   au!
   au ColorScheme * hi Folded guibg=#eb7a34 guifg=#510875
   au ColorScheme * hi CursorLine guibg=#800000
+  au ColorScheme * hi LspInlayHint guibg=#ffff00 guifg=#000000
 augroup END
 ]])
