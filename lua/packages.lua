@@ -37,6 +37,8 @@ require('lazy').setup({
   'tpope/vim-commentary',
   -- repeat
   'tpope/vim-repeat',
+  -- abolish
+  'tpope/vim-abolish',
   -- parser generator tool and incremental parsing library
   'nvim-treesitter/nvim-treesitter',
   -- package manager for lsp servers, dap servers, linters and formatters
