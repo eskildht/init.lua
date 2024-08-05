@@ -1,10 +1,10 @@
 require('gitsigns').setup {
   signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '≈', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    add          = { text = '+' },
+    change       = { text = '~' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '≈' },
   },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -35,7 +35,20 @@ require('gitsigns').setup {
     row = 0,
     col = 1
   },
-  yadm = {
-    enable = false
-  },
 }
+
+vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'GitSignsAdd' })
+vim.api.nvim_set_hl(0, 'GitSignsAddNr', { link = 'GitSignsAddNr' })
+vim.api.nvim_set_hl(0, 'GitSignsAddLn', { link = 'GitSignsAddLn' })
+vim.api.nvim_set_hl(0, 'GitSignsChange', { link = 'GitSignsChange' })
+vim.api.nvim_set_hl(0, 'GitSignsChangeNr', { link = 'GitSignsChangeNr' })
+vim.api.nvim_set_hl(0, 'GitSignsChangeLn', { link = 'GitSignsChangeLn' })
+vim.api.nvim_set_hl(0, 'GitSignsDelete', { link = 'GitSignsDelete' })
+vim.api.nvim_set_hl(0, 'GitSignsDeleteNr', { link = 'GitSignsDeleteNr' })
+vim.api.nvim_set_hl(0, 'GitSignsDeleteLn', { link = 'GitSignsDeleteLn' })
+vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { link = 'GitSignsTopdelete' })
+vim.api.nvim_set_hl(0, 'GitSignsTopdeleteNr', { link = 'GitSignsTopdeleteNr' })
+vim.api.nvim_set_hl(0, 'GitSignsTopdeleteLn', { link = 'GitSignsTopdeleteLn' })
+vim.api.nvim_set_hl(0, 'GitSignsChangedelete', { link = 'GitSignsChangedelete' })
+vim.api.nvim_set_hl(0, 'GitSignsChangedeleteNr', { link = 'GitSignsChangedeleteNr' })
+vim.api.nvim_set_hl(0, 'GitSignsChangedeleteLn', { link = 'GitSignsChangedeleteLn' })
