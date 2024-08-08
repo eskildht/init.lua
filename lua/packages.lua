@@ -206,5 +206,25 @@ require('lazy').setup({
       vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
       vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
     end
+  },
+  -- copilot
+  "github/copilot.vim",
+  -- copilot chat
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim" } -- for curl, log wrapper
+    },
+    opts = {
+      debug = false,
+      mappings = {
+        complete = {
+          detail = 'Use @<Tab> or /<Tab> for options.',
+          insert ='<S-Tab>',
+      	},
+      }
+    }
   }
 })
