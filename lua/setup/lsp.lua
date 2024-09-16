@@ -59,7 +59,7 @@ lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   root_dir = lspconfig.util.root_pattern("tsconfig.test.json", "tsconfig.json", "package.json", "jsconfig.json", ".git"),
@@ -107,10 +107,6 @@ lspconfig.tailwindcss.setup({
 lspconfig.fortls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-})
-lspconfig.csharp_ls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
 })
 lspconfig.omnisharp.setup({
   on_attach = on_attach,
