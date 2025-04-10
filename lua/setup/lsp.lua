@@ -59,37 +59,11 @@ lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
-lspconfig.ts_ls.setup({
+require("typescript-tools").setup({
   on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern("tsconfig.test.json", "tsconfig.json", "package.json", "jsconfig.json", ".git"),
-  settings = {
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      }
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      }
-    }
-  }
+  capabilities = capabilities
 })
+vim.lsp.set_log_level("debug")
 lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -98,15 +72,13 @@ lspconfig.eslint.setup({
     })
     on_attach(client, bufnr)
   end,
-  capabilities = capabilities
-})
-lspconfig.tailwindcss.setup({
-  on_attach = on_attach,
   capabilities = capabilities,
-})
-lspconfig.fortls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+  on_new_config = function(config, new_root_dir)
+    config.settings.workspaceFolder = {
+      uri = vim.uri_from_fname(new_root_dir),
+      name = vim.fn.fnamemodify(new_root_dir, ':t')
+    }
+  end,
 })
 lspconfig.omnisharp.setup({
   on_attach = on_attach,

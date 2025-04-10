@@ -213,7 +213,7 @@ require('lazy').setup({
   -- copilot chat
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     dependencies = {
       { "github/copilot.vim" },
       { "nvim-lua/plenary.nvim" } -- for curl, log wrapper
@@ -227,5 +227,11 @@ require('lazy').setup({
       	},
       }
     }
+  },
+  -- drop in better replacement for typescript-language-server (ts_ls)
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
   }
 })
