@@ -1,3 +1,5 @@
+require('nvim-treesitter.install').prefer_git = false
+require('nvim-treesitter.install').compilers = { 'zig' }
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     'lua',
@@ -12,11 +14,11 @@ require('nvim-treesitter.configs').setup({
     'latex',
     'json',
     'html',
-    'gitcommit',
-    'gitignore',
-    'gitattributes',
-    'git_rebase',
-    'git_config',
+    -- 'gitcommit',
+    -- 'gitignore',
+    -- 'gitattributes',
+    -- 'git_rebase',
+    -- 'git_config',
     'fortran',
     'dockerfile',
     'csv',
