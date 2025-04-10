@@ -63,7 +63,6 @@ require("typescript-tools").setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
-vim.lsp.set_log_level("debug")
 lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
