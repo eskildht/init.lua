@@ -24,6 +24,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<leader>l', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr }) end, bufopts)
+  vim.keymap.set('n', '<leader>v', function()
+    local new_config = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = new_config })
+  end, { desc = 'Toggle diagnostic virtual_lines' })
 
   if client.server_capabilities.documentSymbolProvider then
     -- attach nvim-navbuddy
