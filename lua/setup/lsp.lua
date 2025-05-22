@@ -80,7 +80,12 @@ lspconfig.pyright.setup({
 })
 require("typescript-tools").setup({
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  settings = {
+    tsserver_file_preferences = {
+      importModuleSpecifierPreference = "relative"
+    }
+  }
 })
 lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
