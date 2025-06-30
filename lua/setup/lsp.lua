@@ -87,20 +87,31 @@ require("typescript-tools").setup({
     }
   }
 })
-lspconfig.eslint.setup({
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-  on_new_config = function(config, new_root_dir)
-    config.settings.workspaceFolder = {
-      uri = vim.uri_from_fname(new_root_dir),
-      name = vim.fn.fnamemodify(new_root_dir, ':t')
-    }
+-- lspconfig.eslint.setup({
+--   on_attach = function(client, bufnr)
+--     vim.api.nvim_create_autocmd("BufWritePre", {
+--       buffer = bufnr,
+--       command = "EslintFixAll",
+--     })
+--     on_attach(client, bufnr)
+--   end,
+--   capabilities = capabilities,
+--   on_new_config = function(config, new_root_dir)
+--     config.settings.workspaceFolder = {
+--       uri = vim.uri_from_fname(new_root_dir),
+--       name = vim.fn.fnamemodify(new_root_dir, ':t')
+--     }
+--   end,
+-- })
+vim.env.ESLINT_D_PPID = vim.fn.getpid()
+require('lint').linters_by_ft = {
+  javascript = {'eslint_d'},
+  typescript = {'eslint_d'},
+}
+vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+  callback = function()
+    require("lint").try_lint("eslint_d")
   end,
 })
 lspconfig.omnisharp.setup({
