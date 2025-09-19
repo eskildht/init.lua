@@ -116,5 +116,19 @@ vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
 })
 lspconfig.omnisharp.setup({
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  cmd = {
+    "omnisharp",
+    "--languageserver",
+    "--hostPID",
+    tostring(vim.fn.getpid())
+  },
+  settings = {
+    RoslynExtensionsOptions = {
+      enableDecompilationSupport = false,
+      enableImportCompletion = true,
+      enableAnalyzersSupport = true,
+    }
+  },
+  root_dir = lspconfig.util.root_pattern("*.sln")
 })
