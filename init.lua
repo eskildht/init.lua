@@ -5,7 +5,6 @@ require('keymap')
 
 -- setup
 require('setup/alpha')
-require('setup/treesitter')
 require('setup/lsp')
 require('setup/diffview')
 require('setup/fugitive')

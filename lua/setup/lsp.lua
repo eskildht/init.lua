@@ -56,11 +56,10 @@ require('mason-lspconfig').setup({
   automatic_installation = true
 })
 
-local lspconfig = require('lspconfig')
 -- cmp integration
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -74,11 +73,11 @@ lspconfig.lua_ls.setup({
     }
   }
 })
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
   on_attach = on_attach,
   capabilities = capabilities
 })
-require("typescript-tools").setup({
+vim.lsp.config("typescript-tools", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -114,7 +113,7 @@ vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
     require("lint").try_lint("eslint_d")
   end,
 })
-lspconfig.omnisharp.setup({
+vim.lsp.config("omnisharp", {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = {
@@ -130,5 +129,5 @@ lspconfig.omnisharp.setup({
       enableAnalyzersSupport = true,
     }
   },
-  root_dir = lspconfig.util.root_pattern("*.sln")
+  root_dir = require("lspconfig").util.root_pattern("*.sln")
 })
